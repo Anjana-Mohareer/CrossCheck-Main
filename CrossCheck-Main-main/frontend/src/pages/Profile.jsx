@@ -1,0 +1,13 @@
+import {useEffect,useRef,useState} from 'react';
+import {Camera,Save,Trash2,UserRound} from 'lucide-react';
+import {api} from '../services/api';
+import {PageTitle} from '../components/UI';
+import {useAuth} from '../context/AuthContext';
+
+export default function Profile(){
+ const {user,updateUser}=useAuth(); const [f,setF]=useState({...user}); const [busy,setBusy]=useState(false); const [message,setMessage]=useState(''); const input=useRef();
+ useEffect(()=>{api.profile().then(x=>{setF(x);updateUser(x)}).catch(()=>{})},[]);
+ const choose=e=>{const file=e.target.files?.[0]; if(!file)return; if(!file.type.startsWith('image/')){setMessage('Please choose a JPG, PNG or WEBP image.');return} if(file.size>3*1024*1024){setMessage('Please choose an image smaller than 3 MB.');return} const r=new FileReader();r.onload=()=>setF(v=>({...v,photoDataUrl:r.result}));r.readAsDataURL(file)};
+ const save=async e=>{e.preventDefault();setBusy(true);setMessage('');try{const next=await api.updateProfile(f);setF(next);updateUser(next);setMessage('Profile updated successfully.')}catch(err){setMessage(err.message)}finally{setBusy(false)}};
+ return <><PageTitle title="My Profile" subtitle="Manage Your Account Information And Profile Photo."/><form className="panel profile-panel" onSubmit={save}><section className="profile-photo-section"><div className="profile-photo">{f.photoDataUrl?<img src={f.photoDataUrl} alt={f.name}/>:<UserRound/>}</div><div><h2>{f.name||'Your Profile'}</h2><p>{f.role} Account</p><div className="profile-photo-actions"><button type="button" className="btn secondary" onClick={()=>input.current?.click()}><Camera/>Upload Photo</button>{f.photoDataUrl&&<button type="button" className="btn danger" onClick={()=>setF({...f,photoDataUrl:null})}><Trash2/>Remove</button>}<input ref={input} hidden type="file" accept="image/png,image/jpeg,image/webp" onChange={choose}/></div><small>JPG, PNG or WEBP. Maximum size 3 MB.</small></div></section><section className="profile-fields"><label>Full Name<input value={f.name||''} onChange={e=>setF({...f,name:e.target.value})} required/></label><label>Email<input value={f.email||''} disabled/></label><label>Phone Number<input value={f.phone||''} onChange={e=>setF({...f,phone:e.target.value})} placeholder="Enter Phone Number"/></label><label>Designation<input value={f.designation||''} onChange={e=>setF({...f,designation:e.target.value})} placeholder="Example: HR Manager"/></label><label>Role<input value={f.role||''} disabled/></label></section>{message&&<p className={message.includes('successfully')?'success-message':'error-message'}>{message}</p>}<div className="form-actions"><button className="btn" disabled={busy}><Save/>{busy?'Saving…':'Save Profile'}</button></div></form></>
+}

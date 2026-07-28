@@ -1,0 +1,3 @@
+package com.crosscheck.service;
+import com.crosscheck.model.*;import com.crosscheck.repository.*;import org.springframework.stereotype.Service;
+@Service public class AuditService{private final AuditLogRepository audits;private final NotificationRepository notes;public AuditService(AuditLogRepository a,NotificationRepository n){audits=a;notes=n;}public void audit(String user,String action,String entity,String id,String details){AuditLog a=new AuditLog();a.setUserName(user);a.setAction(action);a.setEntityType(entity);a.setEntityId(id);a.setDetails(details);audits.save(a);}public void notify(String title,String message,String level){Notification n=new Notification();n.setTitle(title);n.setMessage(message);n.setLevel(level);notes.save(n);}}

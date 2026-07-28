@@ -1,0 +1,94 @@
+Module-1.Landing Page.
+In landing page hero,company introduction,features,how it works,contact,login,request demo
+
+2.Authentication.
+Role admin,hr,recruiter-login,logoutforgot password,role base authorization
+
+3.Candidate Management
+recruiter should be able to add candidate,update,upload resume,edit candidate,delete candidate,search candidate,filter candidate,candidate details will come at name,email,mobile number,experience,skills,education,resume,current company,previous company,notice period,expected salary,current salary
+
+Module-4.Employment Verification.
+here we have to verify current company details,previous company details,,joining date,relieving date,employment gap.
+status should be verified,pending or filled.
+
+
+Module-5.Education Verification
+here comes verified degree,university ,year ,marks
+Status should be show as verified or pending
+
+Module-6.Identity Verification
+Here Aadhar card,pan card,passport
+status verified or pending
+
+Module-7.Document Verification
+Upload resume,aadhar card,pan card,experience letter,salary slip,offer letters
+
+Module-8.Multiple offer detection
+to check active offer is there with candidateduplicate candidates,same email address is there?,same mobile number is there? same resume is there? if yes generate duplicate risk
+
+9.AI Hiring risk Engine
+here will calculate hiring risk - 0 to 100%
+Factors we need to cover for this module fake experience letter,ex employment gap,job switching frequency,education verification,Identity verification,Multiple offers,resume mismatch,background check,reference check ,notice period
+Output for this -low risk,medium risk,High risk
+
+Module-10.Joining probability prediction
+AI or ML to predict,joining probability percentage
+factors we need to consider-Notice period,previous acceptance rate,multiple offers,salary differnce,candidate interest,Interview Feedback
+Output-if it's shows 94% we can hire this candidate
+
+Module-11.Dashboard
+cards-Total candidates
+second card-Offers analyse
+Thirs card-High risk candidates
+fourth card-Hiring success rate
+charts will be -hiring risk distribution,joining probability,Monthly hiring,verification status
+recent charts tables based on the candidate name,position,risk score,joining probability status and date
+
+module-12.Based on the candidate profile 
+in which tabs display will be there
+for the tabs-overview,candidate profile,employment,education,offer history,documents,activity
+same for the cabdidate profile display should be-hiring trust score,risk level,joining probabilty,verification status
+
+Module-13.Report Geneartion
+where we will be generating pdf report -containing candidate details ,employment verification,education verification,Identity verification,document verification,rsk score,AI recommendation,final decision
+There we can show two button-one button will come with the downlad pdf
+second button will come with the share report
+
+Module-14.Notification
+sending email,sms or in app notification .events will be candidate added,verification completed,high risk candidate,report generated
+
+module-15.Audit logs
+tracking user login,candidate created,candidate updated,candidate deleted,report downloaded
+
+module-16.Admin Panel
+here it will manage users,role,permission,company,API keys,verification providers,subscription plans
+
+Database tables to be created
+users table
+roles
+companies
+candidates
+employment history
+education
+documnets
+identity verification
+employment verification
+education verification
+offer history
+risk assessment
+AI recommendation
+notifications
+reports
+audit
+logs
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,10 @@
+CrossCheck Email Service Update
+
+- Added Spring Boot Mail dependency.
+- Sends a welcome email to every newly registered Admin, HR or Recruiter account.
+- Sends candidate update emails to the candidate's respective email address and the logged-in user's registered email address.
+- Added emails for candidate creation, profile revision, verification changes, offer-letter review, hiring and document upload.
+- Added forgot-password request email.
+- Added configurable Gmail/SMTP support using environment variables.
+- Email errors are logged and do not interrupt candidate operations.
+- Email preview mode is used by default until SMTP is enabled.

@@ -1,0 +1,3 @@
+package com.crosscheck.model;
+import jakarta.persistence.*;import java.time.LocalDateTime;
+@Entity @Table(name="notifications") public class Notification{@Id @GeneratedValue(strategy=GenerationType.IDENTITY) private Long id; private String title; @Column(length=1000) private String message; private String level; private LocalDateTime createdAt=LocalDateTime.now(); public Long getId(){return id;} public String getTitle(){return title;} public void setTitle(String v){title=v;} public String getMessage(){return message;} public void setMessage(String v){message=v;} public String getLevel(){return level;} public void setLevel(String v){level=v;} public LocalDateTime getCreatedAt(){return createdAt;}}
