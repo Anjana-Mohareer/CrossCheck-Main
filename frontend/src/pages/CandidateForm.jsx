@@ -388,7 +388,7 @@ export default function CandidateForm() {
             <div className="section-fields">
               {field('degree', 'Degree', 'text', { capitalize: true })}
               {field('university', 'University', 'text', { capitalize: true })}
-              {field('graduationYear', 'Year of passout')}
+              {field('graduationYear', 'Year Of Passout')}
               {field('marks', 'Marks / CGPA')}
             </div>
           </FormSection>
