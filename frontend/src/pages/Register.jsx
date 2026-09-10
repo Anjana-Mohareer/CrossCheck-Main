@@ -40,12 +40,7 @@ export default function Register(){
     <label>Email Address<input name="email" value={form.email} onChange={update} type="email" placeholder="name@company.com" required maxLength="120"/></label>
    <label>
   Register As
-  <select
-    name="role"
-    value={form.role}
-    onChange={update}
-    required
-  >
+  <select name="role" value={form.role} onChange={update} required>
     <option value="RECRUITER">Recruiter</option>
     <option value="HR">HR</option>
   </select>
