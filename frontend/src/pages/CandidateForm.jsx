@@ -284,14 +284,16 @@ export default function CandidateForm() {
         <button
           type="button"
           className="text-button"
-          onClick={() =>
+          onClick={(event) => {
+            event.preventDefault();
+            event.stopPropagation();
             setF((current) => ({
               ...current,
               [dataKey]: '',
               [nameKey]: '',
               identityStatus: 'PENDING',
-            }))
-          }
+            }));
+          }}
         >
           Remove
         </button>
@@ -430,14 +432,16 @@ export default function CandidateForm() {
               <button
                 type="button"
                 className="text-button"
-                onClick={() =>
+                onClick={(event) => {
+                  event.preventDefault();
+                  event.stopPropagation();
                   setF((current) => ({
                     ...current,
                     offerLetterData: '',
                     offerLetterName: '',
                     offerLetterStatus: 'PENDING',
-                  }))
-                }
+                  }));
+                }}
               >
                 Remove
               </button>
